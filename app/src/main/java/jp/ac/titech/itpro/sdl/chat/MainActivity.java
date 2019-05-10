@@ -277,7 +277,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void showMessage(ChatMessage message) {
         if (message.sound) {
-            soundPlayer.playConnected(); // TODO
+            soundPlayer.playNotificationSound();
         } else {
             chatLogAdapter.add(message);
             chatLogAdapter.notifyDataSetChanged();
