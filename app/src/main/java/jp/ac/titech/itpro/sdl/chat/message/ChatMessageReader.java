@@ -42,7 +42,7 @@ public class ChatMessageReader implements Closeable {
         long time = -1;
         String content = null;
         String sender = null;
-        boolean sound = false;
+        int sound = 0;
         reader.beginObject();
         while (reader.hasNext()) {
             switch (reader.nextName()) {
@@ -73,7 +73,7 @@ public class ChatMessageReader implements Closeable {
                     reader.skipValue();
                     sender = null;
                 } else {
-                    sound = reader.nextBoolean();
+                    sound = reader.nextInt();
                 }
                 break;
             default:

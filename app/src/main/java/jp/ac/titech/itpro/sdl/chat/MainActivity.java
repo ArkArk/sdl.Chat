@@ -228,7 +228,7 @@ public class MainActivity extends AppCompatActivity {
         }
         messageSeq++;
         long time = System.currentTimeMillis();
-        ChatMessage message = new ChatMessage(messageSeq, time, content, adapter.getName(), false);
+        ChatMessage message = new ChatMessage(messageSeq, time, content, adapter.getName(), 0);
         agent.send(message);
         chatLogAdapter.add(message);
         chatLogAdapter.notifyDataSetChanged();
@@ -240,7 +240,7 @@ public class MainActivity extends AppCompatActivity {
         Log.d(TAG, "onClickSoundButton");
 
         long time = System.currentTimeMillis();
-        ChatMessage message = new ChatMessage(messageSeq, time, "", adapter.getName(), true);
+        ChatMessage message = new ChatMessage(messageSeq, time, "", adapter.getName(), 1);
         agent.send(message);
     }
 
@@ -276,7 +276,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void showMessage(ChatMessage message) {
-        if (message.sound) {
+        if (message.sound == 1) {
             soundPlayer.playNotificationSound();
         } else {
             chatLogAdapter.add(message);
